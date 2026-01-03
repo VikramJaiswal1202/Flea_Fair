@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* Tailwind v4 theme tokens */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Fonts from next/font */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-benoru);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+
+  /* Default body font */
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Use Benoru for headings */
+h1, h2, h3 {
+  font-family: var(--font-display), sans-serif;
+}
+
+/* Optional utility class */
+.font-benoru {
+  font-family: var(--font-display), sans-serif;
+}
+
+/* Animations */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 18s linear infinite;
+}
