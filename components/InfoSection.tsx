@@ -58,7 +58,7 @@ const InfoSection: React.FC = () => {
                   text-3xl
                   sm:text-3xl
                   md:text-4xl
-                  lg:text-[2.5rem]
+                  lg:text-[2.3rem]
                   -rotate-6
                   pl-8">
                 SMALL BUSINESS

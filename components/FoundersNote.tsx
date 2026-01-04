@@ -174,7 +174,7 @@ export default function Page() {
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeInUp}
         >
-          <div className="w-full max-w-[2000px]">
+          <div className="w-full max-w-[500px]">
             {/* Responsive Founder's Note */}
             <div className="relative">
               {/* Mobile Layout - Stacked */}
@@ -222,7 +222,7 @@ export default function Page() {
               
               {/* Desktop Layout - Custom responsive version */}
               <div className="hidden md:block relative py-20 overflow-visible">
-                <div className="absolute top-1/2 transform -translate-y-1/2 bg-[#60C0FF] left-0 w-[98%] h-[380px] rounded-r-[120px] rounded-l-[30px] z-0"></div>
+                
                 
                 <div className="relative z-10 w-full pl-[420px] lg:pl-[480px] pr-16 lg:pr-20">
                   <h2 className="text-4xl lg:text-5xl font-extrabold mb-8 tracking-wide uppercase text-[#064789]">

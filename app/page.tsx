@@ -16,8 +16,8 @@ import GridSection from '../components/GridSection';
 // Animation variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.6 }
   }
@@ -25,7 +25,7 @@ const fadeInUp = {
 
 const fadeIn = {
   hidden: { opacity: 0 },
-  visible: { 
+  visible: {
     opacity: 1,
     transition: { duration: 0.8 }
   }
@@ -44,8 +44,8 @@ const staggerContainer = {
 
 const slideInLeft = {
   hidden: { opacity: 0, x: -60 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
     transition: { duration: 0.7 }
   }
@@ -53,8 +53,8 @@ const slideInLeft = {
 
 const slideInRight = {
   hidden: { opacity: 0, x: 60 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
     transition: { duration: 0.7 }
   }
@@ -62,8 +62,8 @@ const slideInRight = {
 
 const scaleIn = {
   hidden: { opacity: 0, scale: 0.8 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     scale: 1,
     transition: { duration: 0.6 }
   }
@@ -72,9 +72,9 @@ const scaleIn = {
 // Splash screen variants
 const splashSlide = {
   initial: { y: 0 },
-  exit: { 
+  exit: {
     y: '100%',
-    transition: { 
+    transition: {
       duration: 0.8
     }
   }
@@ -82,10 +82,10 @@ const splashSlide = {
 
 const heroBounce = {
   hidden: { scale: 0, opacity: 0 },
-  visible: { 
-    scale: 1, 
+  visible: {
+    scale: 1,
     opacity: 1,
-    transition: { 
+    transition: {
       type: 'spring' as const,
       stiffness: 260,
       damping: 20,
@@ -100,7 +100,7 @@ export default function Page() {
   useEffect(() => {
     // Scroll to top on page load
     window.scrollTo(0, 0);
-    
+
     // Hide splash screen after all animations complete
     const timer = setTimeout(() => {
       setShowSplash(false);
@@ -122,7 +122,7 @@ export default function Page() {
               exit={{ y: '100%' }}
               transition={{ duration: 0.8, delay: 0 }}
             />
-            
+
             {/* Second Layer - Yellow (exits second) */}
             <motion.div
               className="absolute inset-0 bg-[#fbbf24] z-20"
@@ -130,7 +130,7 @@ export default function Page() {
               exit={{ y: '100%' }}
               transition={{ duration: 0.8, delay: 0.2 }}
             />
-            
+
             {/* Third Layer - Pink (exits last) */}
             <motion.div
               className="absolute inset-0 bg-[#ec4899] z-10"
@@ -142,7 +142,7 @@ export default function Page() {
         )}
       </AnimatePresence>
 
-      <div className="min-h-screen w-full overflow-x-hidden flex flex-col bg-[#F8F7F5] text-slate-900 font-sans selection:bg-brand-pink selection:text-white relative">
+      <div className="min-h-screen w-full overflow-x-hidden flex flex-col bg-[#F8F7F5] text-slate-900 font-sans selection:bg-brand-pink selection:text-white relative  ">
         {/* Marquee - constrained to viewport */}
         <motion.div
           className="w-full overflow-hidden"
@@ -152,7 +152,7 @@ export default function Page() {
         >
           <Marquee />
         </motion.div>
-        
+
         {/* Navbar with fade in */}
         <motion.div
           className="w-full"
@@ -175,8 +175,8 @@ export default function Page() {
           </motion.div>
 
           {/* Sticker Cluster with scale animation */}
-          <motion.div 
-            className="relative w-full max-w-full mt-5 sm:mt-50 md:mt-8 z-30 md:absolute md:bottom-[250px] md:left-[80px]"
+          <motion.div
+            className="relative w-full max-w-full mt-5 sm:mt-50 md:mt-8 z-30 md:absolute md:bottom-[250px] md:left-20"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: showSplash ? 0 : 1, scale: showSplash ? 0.8 : 1 }}
             transition={{ delay: 2.4, duration: 0.6 }}
@@ -195,15 +195,15 @@ export default function Page() {
         </main>
 
         {/* Second Section with stagger animation */}
-        <motion.div 
-          className="min-h-screen bg-[#F8F7F5] font-sans pb-12 sm:pb-16 md:pb-20 mt-16 sm:mt-24 md:mt-32 w-full overflow-hidden"
+        <motion.div
+          className="min-h-screen bg-[#F8F7F5] font-sans pb-12 sm:pb-16 md:pb-20  w-full overflow-hidden"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
         >
           {/* Dotted line */}
-          <motion.div 
+          <motion.div
             className="px-4 sm:px-6 md:px-8 lg:px-10 max-w-7xl mx-auto w-full"
             variants={fadeIn}
           >
@@ -216,7 +216,7 @@ export default function Page() {
           </motion.div>
 
           {/* Dotted line */}
-          <motion.div 
+          <motion.div
             className="px-4 sm:px-6 md:px-8 lg:px-10 max-w-7xl mx-auto w-full"
             variants={fadeIn}
           >
@@ -224,12 +224,12 @@ export default function Page() {
           </motion.div>
 
           {/* Info and Grid Section */}
-          <motion.main 
+          <motion.main
             className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col lg:flex-row gap-8 sm:gap-10 md:gap-12 lg:gap-20 mt-8 sm:mt-10 md:mt-12 w-full"
             variants={staggerContainer}
           >
             {/* Info Section - Sidebar with slide in from left */}
-            <motion.div 
+            <motion.div
               className="w-full lg:w-1/3 lg:sticky lg:top-8 h-fit"
               variants={slideInLeft}
             >
@@ -237,7 +237,7 @@ export default function Page() {
             </motion.div>
 
             {/* Grid Section - Main Content with slide in from right */}
-            <motion.div 
+            <motion.div
               className="w-full lg:w-2/3"
               variants={slideInRight}
             >
@@ -262,19 +262,19 @@ export default function Page() {
                     <h2 className="text-xl font-extrabold mb-4 tracking-wide uppercase text-[#064789]">
                       FOUNDER'S NOTE
                     </h2>
-                    
+
                     {/* Image with custom polygon clip-path */}
                     <div className="w-full max-w-[280px] h-[380px] mx-auto mb-6 transition-all duration-300 hover:scale-[1.02]">
-                      <img 
-                        src="/ankur.jpeg" 
-                        alt="ANKUR PACHISIA" 
+                      <img
+                        src="/ankur.jpeg"
+                        alt="ANKUR PACHISIA"
                         className="w-full h-full object-cover bg-gray-200"
                         style={{
                           clipPath: 'url(#founder-shape-mobile)',
                           WebkitClipPath: 'url(#founder-shape-mobile)'
                         }}
                       />
-                      
+
                       {/* SVG for custom clip path shape */}
                       <svg className="absolute w-0 h-0" width="0" height="0">
                         <defs>
@@ -295,83 +295,95 @@ export default function Page() {
                         </defs>
                       </svg>
                     </div>
-                    
+
                     <p className="text-sm font-bold leading-relaxed mb-4 text-[#f9f9f9]">
                       The Flea Fair started with one simple goal - to support small businesses and give them the platform they deserve. Today, as our community grows stronger with every edition, our vision is clear: to expand The Flea Fair to more cities and create opportunities for thousands of homegrown entrepreneurs across India.
                       <br /><br />
                       Thank you for being part of this journey.
                     </p>
-                    
+
                     <p className="text-lg font-extrabold mb-3 uppercase text-[#064789]">
                       ANKUR PACHISIA
                     </p>
-                    
-                    <a 
-                      href="https://www.linkedin.com/" 
-                      target="_blank" 
+
+                    <a
+                      href="https://www.linkedin.com/"
+                      target="_blank"
                       rel="noopener noreferrer"
                       aria-label="ANKUR PACHISIA's LinkedIn profile"
                       className="inline-block"
                     >
-                      <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        className="h-8 w-8 fill-[#064789] hover:fill-[#043a5e] transition-colors" 
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-8 w-8 fill-[#064789] hover:fill-[#043a5e] transition-colors"
                         viewBox="0 0 24 24"
                       >
-                        <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+                        <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
                       </svg>
                     </a>
                   </div>
                 </div>
-                
+
                 {/* Desktop Layout - Custom responsive version */}
                 <div className="hidden md:block relative py-20 w-full overflow-hidden">
-                  <div className="absolute top-1/2 transform -translate-y-1/2 bg-[#60C0FF] left-0 right-0 md:right-[2%] h-[380px] rounded-r-[120px] rounded-l-[30px] z-0"></div>
-                  
+                  <div
+                    className="
+                      absolute top-1/2 -translate-y-1/2 left-0 bg-[#60C0FF] z-0
+                      w-[98%] h-[180px]
+                      lg:h-[420px]
+                      xl:h-[480px]
+                      2xl:h-[420px]
+                      rounded-l-[30px]
+                      rounded-r-[120px]
+                      xl:rounded-r-[160px]
+                      2xl:rounded-r-[200px]
+                      "
+                  ></div>
+
                   <div className="relative z-10 w-full pl-[340px] lg:pl-[420px] xl:pl-[480px] pr-8 lg:pr-16 xl:pr-20">
                     <h2 className="text-3xl lg:text-4xl xl:text-5xl font-extrabold mb-8 tracking-wide uppercase text-[#064789]">
                       FOUNDER'S NOTE
                     </h2>
-                    
+
                     <p className="text-sm lg:text-base font-bold leading-relaxed mb-4 text-[#f9f9f9]">
                       The Flea Fair started with one simple goal - to support small businesses and give them the platform they deserve. Today, as our community grows stronger with every edition, our vision is clear: to expand The Flea Fair to more cities and create opportunities for thousands of homegrown entrepreneurs across India.
                       <br /><br />
                       Thank you for being part of this journey.
                     </p>
-                    
+
                     <p className="text-xl lg:text-2xl xl:text-3xl font-extrabold mb-3 uppercase text-[#064789]">
                       ANKUR PACHISIA
                     </p>
-                    
-                    <a 
-                      href="https://www.linkedin.com/" 
-                      target="_blank" 
+
+                    <a
+                      href="https://www.linkedin.com/"
+                      target="_blank"
                       rel="noopener noreferrer"
                       aria-label="ANKUR PACHISIA's LinkedIn profile"
                       className="inline-block"
                     >
-                      <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        className="h-8 w-8 fill-[#064789] hover:fill-[#043a5e] transition-colors" 
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-8 w-8 fill-[#064789] hover:fill-[#043a5e] transition-colors"
                         viewBox="0 0 24 24"
                       >
-                        <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+                        <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
                       </svg>
                     </a>
                   </div>
-                  
+
                   {/* Image with custom polygon clip-path */}
                   <div className="absolute left-4 md:left-6 lg:left-8 xl:left-12 top-1/2 transform -translate-y-1/2 w-[280px] h-[400px] md:w-[300px] md:h-[420px] lg:w-[350px] lg:h-[480px] xl:w-[400px] xl:h-[540px] z-20 transition-all duration-300 hover:scale-[1.02]">
-                    <img 
-                      src="/ankur.jpeg" 
-                      alt="ANKUR PACHISIA" 
+                    <img
+                      src="/ankur.jpeg"
+                      alt="ANKUR PACHISIA"
                       className="w-full h-full object-cover bg-gray-200"
                       style={{
                         clipPath: 'url(#founder-shape-desktop)',
                         WebkitClipPath: 'url(#founder-shape-desktop)'
                       }}
                     />
-                    
+
                     {/* SVG for custom clip path shape */}
                     <svg className="absolute w-0 h-0" width="0" height="0">
                       <defs>
