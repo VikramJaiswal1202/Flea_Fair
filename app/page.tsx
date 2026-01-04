@@ -104,16 +104,34 @@ export default function Page() {
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
 
+    // Prevent horizontal scroll
+    document.documentElement.style.overflowX = 'hidden';
+    document.body.style.overflowX = 'hidden';
+    document.body.style.width = '100%';
+    document.body.style.position = 'relative';
+
     // Hide splash screen after all animations complete
     const timer = setTimeout(() => {
       setShowSplash(false);
     }, 1800);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
     <>
+      <style jsx global>{`
+        html, body {
+          overflow-x: hidden;
+          max-width: 100vw;
+        }
+        body {
+          position: relative;
+        }
+      `}</style>
+      
       {/* Splash Screen */}
       <AnimatePresence>
         {showSplash && (
@@ -145,7 +163,7 @@ export default function Page() {
         )}
       </AnimatePresence>
 
-      <div className="min-h-screen w-full overflow-x-hidden flex flex-col bg-[#F8F7F5] text-slate-900 font-sans selection:bg-brand-pink selection:text-white relative  ">
+      <div className="min-h-screen w-full overflow-x-hidden flex flex-col bg-[#F8F7F5] text-slate-900 font-sans selection:bg-brand-pink selection:text-white relative">
         {/* Marquee - constrained to viewport */}
         <motion.div
           className="w-full overflow-hidden"
@@ -158,7 +176,7 @@ export default function Page() {
 
         {/* Navbar with fade in */}
         <motion.div
-          className="w-full"
+          className="w-full overflow-hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: showSplash ? 0 : 1 }}
           transition={{ delay: 2, duration: 0.5 }}
@@ -199,7 +217,7 @@ export default function Page() {
 
         {/* Second Section with stagger animation */}
         <motion.div
-          className="min-h-screen bg-[#F8F7F5] font-sans pb-12 sm:pb-16 md:pb-20  w-full overflow-hidden"
+          className=" bg-[#F8F7F5] font-sans pb-12 sm:pb-16 md:pb-20  w-full overflow-hidden"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}

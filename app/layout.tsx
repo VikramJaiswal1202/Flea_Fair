@@ -30,7 +30,7 @@ export default function RootLayout({
     >
       <body
         suppressHydrationWarning={true}
-        className="antialiased"
+        className="antialiased "
       >
         {children}
       </body>

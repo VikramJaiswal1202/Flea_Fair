@@ -50,3 +50,12 @@ h1, h2, h3 {
 .animate-marquee {
   animation: marquee 18s linear infinite;
 }
+/* Hide scrollbar but keep scrolling */
+* {
+  -ms-overflow-style: none;   /* IE & Edge */
+  scrollbar-width: none;      /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none;              /* Chrome, Safari */
+}

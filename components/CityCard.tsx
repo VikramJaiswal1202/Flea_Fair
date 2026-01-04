@@ -9,7 +9,7 @@ const CityCard: React.FC<CityCardProps> = ({ city }) => {
   const isGrayscale = city.status === 'coming-soon';
 
   return (
-    <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-lg group cursor-pointer">
+    <div className="relative w-full aspect-4/3 rounded-3xl overflow-hidden shadow-lg group cursor-pointer">
       
       {/* Background Image */}
       <div className="absolute inset-0 bg-gray-200 transition-all duration-500 ease-in-out">
