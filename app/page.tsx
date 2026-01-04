@@ -98,8 +98,11 @@ export default function Page() {
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
-    // Scroll to top on page load
+    // Force scroll to top on page load
+    window.history.scrollRestoration = 'manual';
     window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
 
     // Hide splash screen after all animations complete
     const timer = setTimeout(() => {
@@ -251,20 +254,29 @@ export default function Page() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
+            variants={staggerContainer}
           >
             <div className="w-full max-w-7xl">
               {/* Responsive Founder's Note */}
               <div className="relative w-full">
                 {/* Mobile Layout - Stacked */}
-                <div className="block md:hidden w-full">
+                <motion.div 
+                  className="block md:hidden w-full"
+                  variants={fadeInUp}
+                >
                   <div className="bg-[#60C0FF] rounded-3xl p-6 mb-6 w-full">
-                    <h2 className="text-xl font-extrabold mb-4 tracking-wide uppercase text-[#064789]">
+                    <motion.h2 
+                      className="text-xl font-extrabold mb-4 tracking-wide uppercase text-[#064789]"
+                      variants={fadeIn}
+                    >
                       FOUNDER'S NOTE
-                    </h2>
+                    </motion.h2>
 
                     {/* Image with custom polygon clip-path */}
-                    <div className="w-full max-w-[280px] h-[380px] mx-auto mb-6 transition-all duration-300 hover:scale-[1.02]">
+                    <motion.div 
+                      className="w-full max-w-[280px] h-[380px] mx-auto mb-6 transition-all duration-300 hover:scale-[1.02]"
+                      variants={scaleIn}
+                    >
                       <img
                         src="/ankur.jpeg"
                         alt="ANKUR PACHISIA"
@@ -294,24 +306,33 @@ export default function Page() {
                           </clipPath>
                         </defs>
                       </svg>
-                    </div>
+                    </motion.div>
 
-                    <p className="text-sm font-bold leading-relaxed mb-4 text-[#f9f9f9]">
+                    <motion.p 
+                      className="text-sm font-bold leading-relaxed mb-4 text-[#f9f9f9]"
+                      variants={fadeIn}
+                    >
                       The Flea Fair started with one simple goal - to support small businesses and give them the platform they deserve. Today, as our community grows stronger with every edition, our vision is clear: to expand The Flea Fair to more cities and create opportunities for thousands of homegrown entrepreneurs across India.
                       <br /><br />
                       Thank you for being part of this journey.
-                    </p>
+                    </motion.p>
 
-                    <p className="text-lg font-extrabold mb-3 uppercase text-[#064789]">
+                    <motion.p 
+                      className="text-lg font-extrabold mb-3 uppercase text-[#064789]"
+                      variants={fadeIn}
+                    >
                       ANKUR PACHISIA
-                    </p>
+                    </motion.p>
 
-                    <a
+                    <motion.a
                       href="https://www.linkedin.com/"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="ANKUR PACHISIA's LinkedIn profile"
                       className="inline-block"
+                      variants={scaleIn}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -320,13 +341,16 @@ export default function Page() {
                       >
                         <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
                       </svg>
-                    </a>
+                    </motion.a>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Desktop Layout - Custom responsive version */}
-                <div className="hidden md:block relative py-20 w-full overflow-hidden">
-                  <div
+                <motion.div 
+                  className="hidden md:block relative py-20 w-full overflow-hidden"
+                  variants={fadeIn}
+                >
+                  <motion.div
                     className="
                       absolute top-1/2 -translate-y-1/2 left-0 bg-[#60C0FF] z-0
                       w-[98%] h-[180px]
@@ -338,29 +362,45 @@ export default function Page() {
                       xl:rounded-r-[160px]
                       2xl:rounded-r-[200px]
                       "
-                  ></div>
+                    variants={slideInLeft}
+                  ></motion.div>
 
-                  <div className="relative z-10 w-full pl-[340px] lg:pl-[420px] xl:pl-[480px] pr-8 lg:pr-16 xl:pr-20">
-                    <h2 className="text-3xl lg:text-4xl xl:text-5xl font-extrabold mb-8 tracking-wide uppercase text-[#064789]">
+                  <motion.div 
+                    className="relative z-10 w-full pl-[340px] lg:pl-[420px] xl:pl-[480px] pr-8 lg:pr-16 xl:pr-20"
+                    variants={fadeInUp}
+                  >
+                    <motion.h2 
+                      className="text-3xl lg:text-4xl xl:text-5xl font-extrabold mb-8 tracking-wide uppercase text-[#064789]"
+                      variants={fadeIn}
+                    >
                       FOUNDER'S NOTE
-                    </h2>
+                    </motion.h2>
 
-                    <p className="text-sm lg:text-base font-bold leading-relaxed mb-4 text-[#f9f9f9]">
+                    <motion.p 
+                      className="text-sm lg:text-base font-bold leading-relaxed mb-4 text-[#f9f9f9]"
+                      variants={fadeIn}
+                    >
                       The Flea Fair started with one simple goal - to support small businesses and give them the platform they deserve. Today, as our community grows stronger with every edition, our vision is clear: to expand The Flea Fair to more cities and create opportunities for thousands of homegrown entrepreneurs across India.
                       <br /><br />
                       Thank you for being part of this journey.
-                    </p>
+                    </motion.p>
 
-                    <p className="text-xl lg:text-2xl xl:text-3xl font-extrabold mb-3 uppercase text-[#064789]">
+                    <motion.p 
+                      className="text-xl lg:text-2xl xl:text-3xl font-extrabold mb-3 uppercase text-[#064789]"
+                      variants={fadeIn}
+                    >
                       ANKUR PACHISIA
-                    </p>
+                    </motion.p>
 
-                    <a
+                    <motion.a
                       href="https://www.linkedin.com/"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="ANKUR PACHISIA's LinkedIn profile"
                       className="inline-block"
+                      variants={scaleIn}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -369,11 +409,14 @@ export default function Page() {
                       >
                         <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
                       </svg>
-                    </a>
-                  </div>
+                    </motion.a>
+                  </motion.div>
 
                   {/* Image with custom polygon clip-path */}
-                  <div className="absolute left-4 md:left-6 lg:left-8 xl:left-12 top-1/2 transform -translate-y-1/2 w-[280px] h-[400px] md:w-[300px] md:h-[420px] lg:w-[350px] lg:h-[480px] xl:w-[400px] xl:h-[540px] z-20 transition-all duration-300 hover:scale-[1.02]">
+                  <motion.div 
+                    className="absolute left-4 md:left-6 lg:left-8 xl:left-12 top-1/2 transform -translate-y-1/2 w-[280px] h-[400px] md:w-[300px] md:h-[420px] lg:w-[350px] lg:h-[480px] xl:w-[400px] xl:h-[540px] z-20 transition-all duration-300 hover:scale-[1.02]"
+                    variants={scaleIn}
+                  >
                     <img
                       src="/ankur.jpeg"
                       alt="ANKUR PACHISIA"
@@ -403,8 +446,8 @@ export default function Page() {
                         </clipPath>
                       </defs>
                     </svg>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               </div>
             </div>
           </motion.main>
