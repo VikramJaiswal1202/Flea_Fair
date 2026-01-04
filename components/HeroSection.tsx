@@ -88,21 +88,24 @@ export const HeroSection = () => {
           {/* Small Business Sticker */}
           <div>
             <motion.img
-              src="/small_buisness.png"
+              src="/SMALL_BUISNESS.png"
               alt="Small Business"
               className="absolute bottom-[23%] left-[5%] w-[78%] -rotate-2 z-20"
               {...stickerScaleIn}
             />
-            <span className="font-benoru text-[#5a108a]
+            <motion.span
+              className="font-benoru text-[#5a108a]
                   text-2xl
                   sm:text-2xl
                   md:text-xl
                   lg:text-2xl
                   xl:text-4xl
                   absolute bottom-[31%] left-[9%] w-[78%] -rotate-[9deg] z-20
-                  ">
+                  "
+              {...stickerScaleIn}
+            >
               SMALL BUSINESS
-            </span>
+            </motion.span>
           </div>
 
           {/* Food Sticker */}
@@ -114,16 +117,20 @@ export const HeroSection = () => {
               {...stickerScaleIn}
               transition={{ delay: 3.3 }}
             />
-            <span className="font-benoru text-[#39B7FF]
+            <motion.span
+              className="font-benoru text-[#39B7FF]
                   text-3xl
                   sm:text-3xl
                   md:text-2xl
                   lg:text-3xl
                   xl:text-5xl
                   absolute top-[13%] left-[11%] w-[62%] -rotate-12 z-30                  
-                  ">
+                  "
+              {...stickerScaleIn}
+              transition={{ delay: 3.3 }}
+            >
               FOOD
-            </span>
+            </motion.span>
           </div>
 
           {/* & Symbol */}
@@ -144,16 +151,20 @@ export const HeroSection = () => {
               {...stickerScaleIn}
               transition={{ delay: 3.35 }}
             />
-            <span className="font-benoru text-[#EFBA3F]
+            <motion.span
+              className="font-benoru text-[#EFBA3F]
                   text-3xl
                   sm:text-3xl
                   md:text-2xl
                   lg:text-3xl
                   xl:text-5xl
                   absolute top-[30%] left-[32%] w-[63%] -rotate-2 z-20
-                  ">
+                  "
+              {...stickerScaleIn}
+              transition={{ delay: 3.35 }}
+            >
               MUSIC
-            </span>
+            </motion.span>
           </div>
 
           {/* Decorative elements */}
